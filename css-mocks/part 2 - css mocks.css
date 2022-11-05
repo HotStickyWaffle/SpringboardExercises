@@ -1,0 +1,120 @@
+hr {
+    margin: 50px;
+}
+
+/* MOCK 1 */
+
+.signup {
+    background-color: skyblue;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+.signup:hover {
+    background-color: rgb(47, 134, 169);
+}
+
+.signup:active {
+    transform: scale(1.05);
+}
+
+/* MOCK 2 */
+
+.cat {
+    height: 600px;
+    width: 600px;
+    background-color: lightgray;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgb(89, 89, 89), -2px -2px 5px rgb(89, 89, 89);
+    ;
+}
+
+.img {
+    background-image: url("https://images.unsplash.com/photo-1519052537078-e6302a4968d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80");
+    background-size: 100% auto;
+    background-position: center;
+    width: 100%;
+    height: 50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.label {
+    width: 100%;
+    height: 10%;
+    box-sizing: border-box;
+}
+
+h1 {
+    border-bottom: 5px black;
+    padding-left: 15px;
+}
+
+.description {
+    width: 100%;
+    height: 40%;
+    border-top: 2px solid rgb(170, 170, 170);
+    padding: 15px;
+    box-sizing: border-box;
+
+}
+
+/* MOCK 3 */
+
+.tiles {
+    height: 200px;
+}
+
+.tile {
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gif {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: 5px solid lightpink;
+    box-sizing: border-box;
+
+
+}
+
+#gif1 {
+    background-image: url("https://media3.giphy.com/media/JfLdIahamXQI0/giphy.gif?cid=790b761188c945311bdb2f688a44dbc6e60fa317acfcabe1&rid=giphy.gif&ct=g");
+}
+
+#gif2 {
+    background-image: url("https://media3.giphy.com/media/o0vwzuFwCGAFO/giphy.gif?cid=790b7611a88f6212df91eb4ae0da79c8e07975cc30a1d118&rid=giphy.gif&ct=g");
+
+}
+
+#gif3 {
+    background-image: url("https://media1.giphy.com/media/YPgzpAIsOCHjpAyvum/giphy.gif?cid=790b7611b62badc19fc68e078f69a83f9509708f6cc0aa6b&rid=giphy.gif&ct=g");
+
+}
+
+.trans {
+    background-color: hsla(0, 0%, 0%, 0.5);
+    border-radius: 5px;
+    color: white;
+    height: 100%;
+    width: 100%;
+    font-size: 60px;
+    position: absolute;
+    top: 200px;
+    transition: .6s;
+    text-align: center;
+}
+
+.tile:hover .trans {
+    top: 0px;
+}

@@ -1,0 +1,28 @@
+body {}
+
+.line {
+    text-decoration: line-through;
+}
+
+li {
+    margin: 1em auto;
+}
+
+.doneBtn {
+    margin-left: 1em;
+}
+
+p {
+    font-size: .8em;
+}
+
+/* .upBtn {
+    margin-right: .5em;
+}
+
+.downBtn {
+    margin-right: 1em;
+}
+
+.upBtn,
+.downBtn {} */

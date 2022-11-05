@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="jsTodoList.css">
+</head>
+
+<body>
+    <h1>To-Do List</h1>
+    <div>
+        <p>*Click list item to 'strike-through'</p>
+        <p>**Click 'Clear To-Do' to remove item</p>
+    </div>
+    <form id="todoForm">
+        <input type="text" id="new" placeholder="New To-Do Item">
+        <input type="submit" id="add" value="Add New To-Do">
+
+    </form>
+    <hr>
+    <section id="list">
+        <ul id="ul">
+
+        </ul>
+        <button id="remove">Remove Completed To-Dos</button>
+    </section>
+    <section id="completed">
+
+    </section>
+
+    <script src="jsTodoList.js"></script>
+</body>
+
+</html>
