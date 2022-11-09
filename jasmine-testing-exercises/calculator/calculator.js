@@ -49,7 +49,7 @@ function update() {
 function calculateMonthlyPayment(values) {
   let P = values.amount;
   let n = values.years * 12;
-  let i = values.rate / 12;
+  let i = (values.rate / 100) / 12;
   console.log(n);
   console.log(P);
   console.log(i);
@@ -61,5 +61,5 @@ function calculateMonthlyPayment(values) {
 // Given a string representing the monthly payment value,
 // update the UI to show the value.
 function updateMonthly(monthly) {
-  monthlyPayment.innerText = (Math.round(monthly * 100) / 100).toFixed(2);
+  monthlyPayment.innerText = `$${monthly}`;
 }
