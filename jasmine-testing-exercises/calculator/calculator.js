@@ -50,9 +50,6 @@ function calculateMonthlyPayment(values) {
   let P = values.amount;
   let n = values.years * 12;
   let i = (values.rate / 100) / 12;
-  console.log(n);
-  console.log(P);
-  console.log(i);
   let monthlyRate = ((P * i) / (1 - ((1 + i) ** -n)));
   let monthlyRateRound = (Math.round(monthlyRate * 100) / 100).toFixed(2);
   return monthlyRateRound.toString();
