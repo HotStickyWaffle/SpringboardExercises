@@ -91,33 +91,21 @@ garage.vehicles; // [Car, Motorcycle]
 garage.add(new Motorcycle("Honda", "Nighthawk", 2001));
 // "Sorry, we're full."
 
-class Garage extends Vehicle {
+class Garage {
     constructor(capacity) {
-        // if (typeof this.make !== 'string' || typeof this.model !== 'string' || typeof this.year !== 'number') {
-        //     throw new Error('Only vehicles are allowed in here!')
-        // };
-        // if (this.vehicles.length === this.capacity) {
-        //     throw new Error('Sorry, we’re full.')
-        // }
         this.capacity = capacity;
         this.vehicles = [];
     }
 
-    add(newVehicles) {
-        if (!(newVehicles instanceof Vehicle)) {
+    add(newVehicle) {
+        if (!(newVehicle instanceof Vehicle)) {
             return 'Only vehicles are allowed in here!'
         };
-        if (this.newVehicles.length >= this.capacity) {
+        if (this.vehicles.length >= this.capacity) {
             return 'Sorry, we’re full.'
         }
-        this.vehicles.push(this.constructor.name)
-
-        // if (this.constructor.name === Motorcycle){
-        //     this.vehicles.push('Motorcycle')
-        // }
-        // if (this.constructor.name === Car){
-        //     this.vehicles.push('Car')
-        // }
+        this.vehicles.push(newVehicle);
+        return 'Vehicle added!'
     }
 
 }

@@ -1,0 +1,29 @@
+Part One: Solidify Terminology
+In your own terms, define the following terms:
+
+What is HTTP?
+A protocol used for browsers to communicate with servers.
+
+What is a URL?
+The information used by the server to request a webpage from a server, which includes the protocol, the hostname, the port (which users usually don't type), and if necessary, the resource page and any queries.
+
+What is DNS?
+The server that has the IP address information for websites.
+
+What is a query string?
+The specific information being requested from the web server, often in the form of a search request, such as specific terms being requested from Google or Wikipedia.
+
+What are two HTTP verbs and how are they different?
+Get, which is a request for information (such as a page) from a server, and Post, which is a request sent to the server to make some kind of change, such as a reddit post or updating user information.
+
+What is an HTTP request?
+It is the request sent to the server for the specified host, port, and if requested, source and query. It is usually in the form of a Get request or a Post request.
+
+What is an HTTP response?
+When the server takes the request and sends back the corresponding information, such as HTML information, JS and CSS links, and images.  
+
+What is an HTTP header? Give a couple examples of request and response headers you have seen.
+Request headers include the hostname, dates, languages the browser wants the information output as, and any cookies needed.  Response requests will be the form the content is in, such as HTML, cookies the server wants to send the user, and any cache information for future requests.
+
+What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+The browser will take that URL and see if there is a corresponding IP stored in the cache.  If not, it will then check the router and then ISP for the IP, and then if not that it will search a DNS.  If the information is not found, the corresponding error is sent. Otherwise, the request is given the the web server and that information is then sent back to the browser, usually in the form of a web page.
