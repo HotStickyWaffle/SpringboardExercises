@@ -9,21 +9,23 @@ async function getGif(searchTerm) {
 
     let randomNum = Math.round(Math.random() * params.limit + 1);
 
-    return response.data.data[randomNum].url
-    // console.log(response.data.data[randomNum].url)
+    // return response.data[randomNum].images.original.url
+    // console.log(response.data.data[randomNum].embed_url)
+    return response.data.data[randomNum].embed_url
 }
+
+// I can only seem to get a response of a Cross-Origin Read Blocking error.  I can't seem to resolve it, and I've tried using several different types of URLs from the returned data.
 
 const searchButton = document.querySelector('#searchButton')
 const gifDiv = document.querySelector('#gifDiv')
 
 
-searchButton.addEventListener('click', function (evt) {
+searchButton.addEventListener('click', async function (evt) {
     evt.preventDefault();
     const searchTerm = document.querySelector('#searchTerm')
-    console.log(searchTerm.value)
     const gifUrl = getGif(searchTerm.value)
-    console.log(gifUrl)
-    appendGif(gifUrl)
+    console.log(await gifUrl)
+    appendGif(await gifUrl)
 
 })
 
