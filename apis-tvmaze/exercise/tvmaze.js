@@ -51,7 +51,7 @@ function populateShows(shows) {
              </button>
            </div>
          </div>
-         <button id='episodeButton'>Show Episodes</button>  
+         <button data-show-id='${show.id}' data-show-name='${show.name}' id='episodeButton'>Show Episodes</button>  
        </div>
       `);
 
@@ -78,10 +78,8 @@ $searchForm.on("submit", async function (evt) {
   await searchForShowAndDisplay();
 });
 
-async function getEpisodes(id) {
+async function getEpisodesOfShow(id) {
   const response = await axios(`https://api.tvmaze.com/shows/${id}/episodes`);
-
-  console.log(response.data)
 
   let episodeObj = [];
 
@@ -91,12 +89,17 @@ async function getEpisodes(id) {
     episodeObj.push({ name, season, number })
   }
 
+  console.log(episodeObj)
   return episodeObj
 }
 
-$('#shows-list').on('click', function (evt) {
+$('#shows-list').on('click', async function (evt) {
   if (evt.target = $('#episodeButton')) {
-    console.log(evt.target.parent())
+    const episodeButton = evt.target;
+
+    console.log(episodeButton.data('showId'));
+    console.log(episodeButton.data('showName'));
+    await getEpisodesOfShow(episodeButton.data('showId'));
   }
 })
 
