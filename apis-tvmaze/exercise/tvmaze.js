@@ -4,6 +4,7 @@ const $showsList = $('#shows-list');
 const $episodesArea = $('#episodes-area');
 const $searchForm = $('#search-form');
 const $searchQuery = $('#search-query')
+const $episodesList = $('#episodes-list')
 
 
 /** Given a search term, search for tv shows that match that query.
@@ -29,9 +30,6 @@ async function getShowsByTerm(term) {
   return showObj
 }
 
-
-/** Given list of shows, create markup for each and to DOM */
-
 function populateShows(shows) {
   $showsList.empty();
 
@@ -46,12 +44,10 @@ function populateShows(shows) {
            <div class='media-body'>
              <h5 class='text-primary'>${show.name}</h5>
              <div><small>${show.summary}</small></div>
-             <button class='btn btn-outline-light btn-sm Show-getEpisodes'>
-               Episodes
-             </button>
+             <button data-show-id='${show.id}' data-show-name='${show.name}' class='episodeButton btn btn-outline-dark btn-sm Show-getEpisodes'>Show Episodes</button> 
            </div>
          </div>
-         <button data-show-id='${show.id}' data-show-name='${show.name}' id='episodeButton'>Show Episodes</button>  
+          
        </div>
       `);
 
@@ -60,9 +56,7 @@ function populateShows(shows) {
 }
 
 
-/** Handle search form submission: get shows from API and display.
- *    Hide episodes area (that only gets shown if they ask for episodes)
- */
+
 
 async function searchForShowAndDisplay() {
   const term = $($searchQuery).val();
@@ -73,10 +67,12 @@ async function searchForShowAndDisplay() {
   populateShows(shows);
 }
 
+
 $searchForm.on("submit", async function (evt) {
   evt.preventDefault();
   await searchForShowAndDisplay();
 });
+
 
 async function getEpisodesOfShow(id) {
   const response = await axios(`https://api.tvmaze.com/shows/${id}/episodes`);
@@ -93,16 +89,30 @@ async function getEpisodesOfShow(id) {
   return episodeObj
 }
 
-$('#shows-list').on('click', async function (evt) {
-  if (evt.target = $('#episodeButton')) {
-    const episodeButton = evt.target;
 
-    console.log(episodeButton.data('showId'));
-    console.log(episodeButton.data('showName'));
-    await getEpisodesOfShow(episodeButton.data('showId'));
+function populateEpisodes(name, episodes) {
+  const $h3 = $(`<h3><u>${name}</u></h3>`)
+  $episodesList.append($h3);
+
+  for (let episode of episodes) {
+    const $li = $(`<li>${episode.name} - Season ${episode.season}, Episode ${episode.number}</li>`)
+    $episodesList.append($li)
   }
-})
+}
 
+
+$('#shows-list').on('click', '.episodeButton', async function () {
+  if ($episodesArea.css('display', 'none')) {
+    $episodesArea.css('display', '')
+  }
+
+  const episodeButton = $(this);
+
+  const episodeObj = await getEpisodesOfShow(episodeButton.data('showId'));
+
+  populateEpisodes(episodeButton.data('showName'), episodeObj)
+
+})
 
 /** Given a show ID, get from API and return (promise) array of episodes:
  *      { id, name, season, number }
@@ -112,4 +122,4 @@ $('#shows-list').on('click', async function (evt) {
 
 /** Write a clear docstring for this function... */
 
-// function populateEpisodes(episodes) { }
+// 
